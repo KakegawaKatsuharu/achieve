@@ -22,6 +22,7 @@ $(document).ready(function(){
     let avarage = sum / number;
     $("#avarage_indicate").text(avarage);
   };
+
   function get_achievement(){
   // ここに、ランクの値の文字列（平均点が80点以上なら"A"、60点以上なら"B"、40点以上なら"C"、それ以下なら"D"）を出力する処理を書き込む
     let subject_points = [Number($('#national_language').val()),
@@ -76,9 +77,8 @@ function judgement(){
   // 下記の記述をすることで、「最終ジャッジ」のボタンを押すと「あなたの成績は（ここに「ランク」の値を入れる）です。（ここに「判定」の値を入れる）です」という文字の入った水色のフキダシが出力される処理が実装される。
   let achievement = get_achievement();
   let pass_or_failure = get_pass_or_failure();
-  $("#btn-declaration").click(function(){
+  $("#alert-indicate").remove();
     $('#declaration').append(`<label id="alert-indicate" class="alert alert-info">あなたの成績は${achievement}です。${pass_or_failure}です</label>`)
-  });
 };
 
 $('#national_language, #english, #mathematics, #science, #society').change(function() {
